@@ -34,15 +34,11 @@ Cada condição necessitava de colunas diferentes, por exemplo:
 
 Como a minha ideia era compactar e simplificar o máximo a quantidade de informações, decidi tratar as colunas dessa forma:
 
-- ID 
-- SITUAÇÃO
-- SKU
-- PRODUTO
-- TAMANHO
-- QUANTIDADE
-- RESPONSÁVEL
-- DATA DE ENTRADA	
-- OBSERVAÇÕES
+![image](https://github.com/gudaoliveira/NIKE_gerenciador_de_estoque/assets/20359615/ee7387ad-4525-4d93-8b73-3847da7fa2df)
+
+Onde o formato SIS xx / FIS x / -xx demonstra a quantidade no estoque do sistema (SIS), quantidade no estoque físico (FIS) e quantos itens adicionar ou retirar no sistema (SIS - FIS = xx)
+
+E o formato PE xx / PD xx demonstra qual o tamanho do pé esquerdo (PE) e o tamanho do pé direito (PD) encontrados juntos, em caso de existir somente um pé, um dos valores recebem "-"
 
 
 ## 🛠️Experimente você mesmo
