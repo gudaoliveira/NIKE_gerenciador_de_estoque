@@ -74,9 +74,29 @@ function onEdit(e) {
   }
 }
 ```
+Este código verifica se o campo do Dropdown foi editado, se sim ele chama mais  as funções `ResetInputs()` e a `createInputs(dataValidationValue)`, presentes em outros arquivos, que se encarregam de limpar os campos e criar os campos coorespondentes a situação selecionada na tela
 
+Com os campos definidos precisava decidir quais seriam as funções que o sistema executaria, conhecendo o fluxo de trabalho, entendi que as funções mais importantes eram as de:
+- **Adicionar** - _Adicionar novos itens na lista_
+- **Editar** - _Editar itens já existentes na lista através do ID dos mesmos_
+- **Pesquisar** - _Pesquisar produtos através de seu SKU_
+- **Remover** - _Remove itens da lista_
 
+Logo após desenvolver essas funções também tive a necessidade de desenvolver mais duas para melhorar a interação com o usuário e facilitar a consulta 
+- **Limpar** - _Limpa todos os campos_
+- **Mostrar Tudo** - _Mostra todos os itens presentes em determinada situação_
 
+Com isso conseguimos abrangir todas as necessidades relacionadas ao controle dos itens dentro do estoque
+
+## 🧐 Problemas conhecidos e limitações
+
+Essa planilha tem algumas limitações quando falamos em performance, muito disso foi solucionado no código que foi inteiro refatorado antes da postagem do projeto, mas confesso que posso ter deixado passar alguma melhoria, então, se você souber como melhorar esse projeto fique a vontade para contribuir. Além disso, também precisamos entender que o Google Apps Script não é o ambiente mais recomendado para desenvolver um projeto como esse, já que ao longo do projeto encontrei várias limitações e problemas que necessitaram de uma boa porção de código para resolver.
+
+Falando em código, para executar todas as funções corretamente é necessária uma grande quantidade de chamadas a API do Sheets e em muitos casos, criar loops que rodam várias vezes para trabalhar com a grande quantidade de dados e células na base de dados, levando em consideração que o Google Sheets é um serviço que roda em nuvem, encontramos também a limitação da conexão de rede que pode influenciar no desempenho e também o cache do navegador que pode ajudar na lentidão
+
+A planilha em si não é lenta, mas está longe de ser super responsiva, fazendo com que o usuário as vezes precise esperar 1 segundo entre as realização das funções, mas nada disso impede o usuário de realizar seus cadastros e consultas
+
+Também senti a falta de uma outra aba que me permitisse a edição em massa dos itens sem que precisar mexer na base de dados manualmente, já que a quantidade de itens cresceu muito no desenvolver desse projeto, e excluir manualmente 10 itens de uma vez pode ser um pouco massante
 
 
 ## 🛠️Experimente você mesmo
