@@ -5,3 +5,9 @@ Este foi um projeto realizado para a loja na qual eu trabalhava, onde precisavam
 Havia a necessidade de a todo momento procurar tais produtos no estoque, e como a loja era grande e a quantidade desses itens era proporcional ao tamanho da loja, o processo de entrar no estoque para procurar os itens levava um tempo considerável e acabava interferindo no processo do setor, sem contar que, a falta de controle poderia causar perdas para a loja
 
 Por isso, porpûs ao meu gerente para criarmos um sistema simples mas robusto no qual qualquer funcionário pudesse catalogar esses itens e posteriormente realizar uma consulta dos mesmos
+
+# 📸Screenshot
+![image](https://github.com/gudaoliveira/NIKE_gerenciador_de_estoque/assets/20359615/52318e39-b54c-4f11-bbb1-757985d67bed)
+
+**⚠️EM CONSTRUÇÃO**
+
