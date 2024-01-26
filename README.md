@@ -40,6 +40,44 @@ Onde o formato SIS xx / FIS x / -xx demonstra a quantidade no estoque do sistema
 
 E o formato PE xx / PD xx demonstra qual o tamanho do pé esquerdo (PE) e o tamanho do pé direito (PD) encontrados juntos, em caso de existir somente um pé, um dos valores recebem "-"
 
+Dessa forma é possível abrangir todos os casos utilizando a mesma quantidade de campos, e tendo em mente que esses dados vão ser editados pelo sistema e não diretamente pelo usuário, conseguimos manter um certo nével de qualidade dos mesmos
+
+Para finalizar, unifiquei todos os dados já existentes nessa nova planhilha obedecendo o novo formato
+
+![image](https://github.com/gudaoliveira/NIKE_gerenciador_de_estoque/assets/20359615/3e4adc9e-5d3d-451b-8f84-f71cf8225706)
+
+## 🖥️ Desenvolvendo a interface
+
+Com os dados estruturados pude partir para o design da interface. Considerando que a ideia era usar o mínimo de recursos o possível que esses sistema era direcionado ao funcionários que já tinham certa familiaridade com o Google Sheets, não vi opção melhor do que criar uma tela de gerenciamento pelo Sheets mesmo, mas no porcesso de desenvolvimento esbarrei com o mesmo problema novamente...
+
+Cada situação (Defeito, Desparceirado, etc) precisa de campos diferentes para serem preenchidos, daí entendi que poderia seguir por 3 caminhos
+
+1. Manter todos os campos na tela de cadastro
+2. Criar várias telas para cada situação
+3. De alguma forma, criar uma tela dinâmica, que se adapte a necessidade do usuário
+
+E depois de muita pesquisa e testes, encontrei uma solução que permitiria continuar pelo terceiro caminho. Para isso, criei um "Dropdown" no canto superior direito da tela com todas as opções de "Situações" disponíveis, e através de uma função específica da API do Sheets, consigo executar uma ação quando esse dropdown é editado pelo usuário
+
+![image](https://github.com/gudaoliveira/NIKE_gerenciador_de_estoque/assets/20359615/0e8b30c2-c84c-4d51-853c-d967187e0e03)
+
+```
+function onEdit(e) {
+  let range = e.range
+  global_dataValidation = range.getDataValidation()
+  editedSheet = e.source.getActiveSheet()
+
+  if (range.getA1Notation() == 'J1' && sheet.getName() == 'PAINEL DE GERENCIAMENTO') {
+    let dataValidationValue = e.value
+    ui.alert('Planilha selecionada', 'Você selecionou a planilha de ' + dataValidationValue, ui.ButtonSet.OK)
+    resetInputs()
+    createInputs(dataValidationValue)
+  }
+}
+```
+
+
+
+
 
 ## 🛠️Experimente você mesmo
 <div align="center">
