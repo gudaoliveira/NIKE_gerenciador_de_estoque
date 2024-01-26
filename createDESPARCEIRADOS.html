@@ -1,0 +1,85 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <base target="_top">
+    <style>
+      * {
+        font-family: Open Sans;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 10px;
+      }
+
+      label {
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      select {
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #137353;
+        font-weight: bold;
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: white;
+        border: 1.5px solid #ccc;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 10px;
+        color: #137353;
+        float: right;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      button:active {
+        background-color: #137353;
+        color: white;
+      }
+
+      select:active {
+        border: 1px solid #137353;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dropdownForm">
+      <select name="situationForm" id="situationForm">
+          <option value="SKU">SKU</option>
+          <option value="PRODUTO">PRODUTO</option>
+          <option value="PÉ ESQ.">PÉ ESQ.</option>
+          <option value="PÉ DIR.">PÉ DIR.</option>
+          <option value="RESPONSÁVEL">RESPONSÁVEL</option>
+          <option value="OBSERVAÇÃO">OBSERVAÇÃO</option>
+        </select>
+      <button onclick="getDropdownValue()" type="submit" value="selecionar" form="situationForm">Selecionar</button>
+    </div>
+    <script>
+      function getDropdownValue() {
+        let selectedOption = document.getElementById('situationForm').value;
+        console.log(selectedOption + ', ' + typeof(selectedOption))
+        google.script.run.editValueOfRawDataSheet(selectedOption)
+        console.log('rodou a função editValueOfRawDataSheet')
+        google.script.host.close()
+      }
+
+    </script>
+  </body>
+
+</html>
